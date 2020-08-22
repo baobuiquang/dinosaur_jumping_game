@@ -1,6 +1,6 @@
 :root{
     --game-width: 600px;
-    --game-height: 200px;
+    --game-height: 400px;
 
     --character-width: 42px;
     --character-height: 100px;
@@ -9,9 +9,9 @@
     --obstacle-width-negative: -40px;
     --obstacle-height: 40px;
 
-    --jump-height: 100px;
-    --jump-height-2: 95px;
-    --jump-height-3: 75px;
+    --jump-height: 150px;
+    --jump-height-2: 140px;
+    --jump-height-3: 110px;
     
     --jump-time: 0.5s;
     --obstacle-time: 1s;
@@ -28,13 +28,13 @@ p{
 }
 
 .game{
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     width: var(--game-width);
     height: var(--game-height);
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: auto; /*Align the game center*/
     position: relative;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 #character{
     width: var(--character-width);
@@ -66,8 +66,9 @@ p{
     animation: block var(--obstacle-time) infinite linear;
 }
 @keyframes block{
-    0%{left: var(--game-width);}
-    100%{left: var(--obstacle-width-negative);}
+    0%{left: var(--game-width); opacity: 1;}
+    90%{opacity: 1;}
+    100%{left: var(--obstacle-width-negative); opacity: 0;}
 }
 
 .character-img {
