@@ -1,0 +1,82 @@
+:root{
+    --game-width: 600px;
+    --game-height: 200px;
+
+    --character-width: 42px;
+    --character-height: 100px;
+
+    --obstacle-width: 40px;
+    --obstacle-width-negative: -40px;
+    --obstacle-height: 40px;
+
+    --jump-height: 100px;
+    --jump-height-2: 95px;
+    --jump-height-3: 75px;
+    
+    --jump-time: 0.5s;
+    --obstacle-time: 1s;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    /* overflow-x: hidden; */
+}
+
+p{
+    text-align: center;
+}
+
+.game{
+    background-color: antiquewhite;
+    width: var(--game-width);
+    height: var(--game-height);
+    border: 1px solid black;
+    margin: auto; /*Align the game center*/
+    position: relative;
+    overflow-x: hidden;
+}
+#character{
+    width: var(--character-width);
+    height: var(--character-height);
+    background-color: transparent;
+    position: absolute;
+    bottom: 0px;
+}
+.animate{
+    animation: jump var(--jump-time) linear;
+}
+@keyframes jump{
+    0%{bottom: 0px;}
+    25%{bottom: var(--jump-height-3);}
+    38%{bottom: var(--jump-height-2);}
+    50%{bottom: var(--jump-height);}
+    62%{bottom: var(--jump-height-2);}
+    75%{bottom: var(--jump-height-3);}
+    100%{bottom: 0px;}
+}
+
+#obstacle{
+    background-color: transparent;
+    width: var(--obstacle-width);
+    height: var(--obstacle-height);
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    animation: block var(--obstacle-time) infinite linear;
+}
+@keyframes block{
+    0%{left: var(--game-width);}
+    100%{left: var(--obstacle-width-negative);}
+}
+
+.character-img {
+    width: var(--character-width);
+    height: var(--character-height);
+    object-fit: cover;
+}
+.obstacle-img {
+    width: var(--obstacle-width);
+    height: var(--obstacle-height);
+    object-fit: cover;
+}
